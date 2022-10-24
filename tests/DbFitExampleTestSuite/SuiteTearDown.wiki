@@ -1,0 +1,10 @@
+!path lib/*.jar
+
+!|dbfit.OracleTest|
+!|Connect|jdbc:oracle:thin:jani/jani@localhost:1521/XEPDB1|
+
+!1 Clear Test Configuration
+
+!|Execute|delete from party_config where party in ('ACME', 'FOOBARINC', 'MEGACORP')|
+
+|Commit|

@@ -1,0 +1,13 @@
+!1 !-DbFit-! Example Test Suite
+
+Tests an imaginary old-school finance record processing system ([[integration][https://www.redhat.com/en/topics/integration/what-is-integration]]). The processing system transforms source system records to target system records so that the data models of these systems become compatible and target system can read source system data.
+
+The processing system is implemented with [[Oracle PL/SQL][https://www.oracle.com/database/technologies/appdev/plsql.html]] and and the public interfaces are database tables.
+
+The high-level workflow is:
+
+ 1 Finance records produced by an external system (source system) are inserted into !style_code[INPUT]-table.
+ 1 Imaginary finance record processing system transforms the records from !style_code[INPUT]-table and writes the results to !style_code[OUTPUT]-table.
+ 1 Records from !style_code[OUTPUT]-table are read and transferred to the actual target system which will process the records for $$$.
+
+!contents -R2 -g -p -f -h

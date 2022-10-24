@@ -1,0 +1,23 @@
+!path lib/*.jar
+
+!|dbfit.OracleTest|
+!|Connect|jdbc:oracle:thin:jani/jani@localhost:1521/XEPDB1|
+
+!1 Add Test Configuration
+
+!|Insert|party_config|
+|party    |key                        |value|
+|ACME     |ACCOUNT_SALES_NO_COMMISSION|A100 |
+|ACME     |ACCOUNT_SALES_COMMISSION   |A101 |
+|ACME     |ACCOUNT_REWARD             |A102 |
+|ACME     |REWARD_PERCENT             |6    |
+|FOOBARINC|ACCOUNT_SALES_NO_COMMISSION|F100 |
+|FOOBARINC|ACCOUNT_SALES_COMMISSION   |F101 |
+|FOOBARINC|ACCOUNT_REWARD             |F102 |
+|FOOBARINC|REWARD_PERCENT             |8    |
+|MEGACORP |ACCOUNT_SALES_NO_COMMISSION|M100 |
+|MEGACORP |ACCOUNT_SALES_COMMISSION   |M101 |
+|MEGACORP |ACCOUNT_REWARD             |M102 |
+|MEGACORP |REWARD_PERCENT             |10   |
+
+|Commit|

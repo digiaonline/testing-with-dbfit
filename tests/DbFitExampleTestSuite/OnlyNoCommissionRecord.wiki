@@ -1,0 +1,47 @@
+---
+Test
+---
+!path lib/*.jar
+
+!1 Only 'No Commission' Record
+
+Input record reports only no commission sales (only !style_code[amount1] has value). E.g:
+
+|Comment|     |       |       |       |
+|party|amount1|amount2|amount3|amount4|
+|ACME |     30|      0|      0|      0|
+
+Will create one output record where account is value of ACCOUNT_SALES_NO_COMMISSION-key in !style_code[party_config] table.
+
+!2 Input Records
+
+!|Insert|input|
+|party    |amount1|amount2|amount3|amount4|id?                 |
+|ACME     |     30|      0|      0|      0|>>acme_input_id     |
+|FOOBARINC|     40|      0|      0|      0|>>foobarinc_input_id|
+|MEGACORP |     50|      0|      0|      0|>>megacorp_input_id |
+
+!2 Process Records
+
+!|Execute Procedure|data_processing.process_input|
+|p_id                |
+|<<acme_input_id     |
+|<<foobarinc_input_id|
+|<<megacorp_input_id |
+
+!2 Validate Output Records
+
+!|Ordered Query|select * from input_meta order by input_id, processed_at|
+|input_id            |processing_status|
+|<<acme_input_id     |         INSERTED|
+|<<acme_input_id     |     PROCESSED_OK|
+|<<foobarinc_input_id|         INSERTED|
+|<<foobarinc_input_id|     PROCESSED_OK|
+|<<megacorp_input_id |         INSERTED|
+|<<megacorp_input_id |     PROCESSED_OK|
+
+!|Query|select * from output order by id|
+|input_id            |account|amount|
+|<<acme_input_id     |   A100|    30|
+|<<foobarinc_input_id|   F100|    40|
+|<<megacorp_input_id |   M100|    50|

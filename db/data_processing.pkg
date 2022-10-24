@@ -1,0 +1,4 @@
+create or replace package data_processing is
+  procedure process_input(p_id in number);
+end;
+/

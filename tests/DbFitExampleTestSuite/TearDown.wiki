@@ -1,0 +1,9 @@
+!1 Inspection
+
+!|Inspect query|select * from party_config order by party, key|
+
+!|Inspect query|select * from input order by id|
+
+!|Inspect query|select * from input_meta order by input_id, processed_at|
+
+!|Inspect query|select * from output order by id|
