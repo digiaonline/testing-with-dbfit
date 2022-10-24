@@ -183,18 +183,18 @@ This is not a good practice but convenient and no information is leaked in this 
 There is only two test that both belongs to the same [test suite](http://fitnesse.org/FitNesse.FullReferenceGuide.UserGuide.WritingAcceptanceTests.TestSuites) DbFitExampleTestSuite. When the test suite is run the following steps are executed in order:
 
 * SuiteSetup
- * Executed once in the beginning of test suite. Here we set configuration suitable for the test cases.
+  * Executed once in the beginning of test suite. Here we set configuration suitable for the test cases.
 * Setup
- * Executed before every test. Here we import the correct database driver and open database connection.
+  * Executed before every test. Here we import the correct database driver and open database connection.
 * OnlyCommissionRecord
- * The actual test.
+  * The actual test.
 * TearDown
- * Executed after every test. Here we run `Inspect query` DbFit commands that dump the contents of all relevant database tables. This is valuable information when developing the system and/or tests and have helped me several times in troubleshooting.
+  * Executed after every test. Here we run `Inspect query` DbFit commands that dump the contents of all relevant database tables. This is valuable information when developing the system and/or tests and have helped me several times in troubleshooting.
 * Setup
- * The same as before.
+  * The same as before.
 * OnlyCommissionRecord
- * The actual test.
+  * The actual test.
 * TearDown
- * The same as before.
+  * The same as before.
 * SuiteTearDown
- * Executed once in the end of test suite. Here we undo configuration set in SuiteSetup.
+  * Executed once in the end of test suite. Here we undo configuration set in SuiteSetup.
